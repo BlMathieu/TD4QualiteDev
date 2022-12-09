@@ -3,6 +3,9 @@ package ecommerceProxy;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+
 
 public class Dataset {
 
@@ -13,14 +16,14 @@ public class Dataset {
 
 	private Dataset() throws IOException {
 
-		articles = new Article[inst.nbArticles];
+		articles = new Article[trans.size()];
 
-		for (int i = 0; i < inst.nbArticles; i++)
+		for (int i = 0; i < trans.size(); i++)
 			articles[i] = new Article(i);
 
-		trans = new Collection<Transaction>();
+		trans = new ArrayList<>();
 
-		BufferedReader reader = new BufferedReader(new FileReader(inst.datasetPath));
+		BufferedReader reader = new BufferedReader(new FileReader(trans.datasetPath));
 		String line;
 		// for each line (transactions) until the end of the file
 		while (((line = reader.readLine()) != null)) {
@@ -53,7 +56,7 @@ public class Dataset {
 	}
 
 	public ArrayList<Motif> motifParser() throws IOException {
-		
+		return new ArrayList<>();
 		//TODO
 	}
 
